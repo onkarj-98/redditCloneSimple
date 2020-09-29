@@ -1,0 +1,36 @@
+// This class serve as model in MVC 
+// This class contains the structure of vote component
+
+export class Article{
+    title : string;
+    link : string;
+    votes: number;
+
+    constructor (title : string, link : string, votes?: number){
+        this.title = title;
+        this.link = link;
+        this.votes = votes || 0;
+    }
+
+    voteUp(): boolean{
+        this.votes += 1;
+        return false; // returning false bcoz if it is true then it will refresh the page(vaguely)
+      }
+   
+      voteDown() :boolean{
+        this.votes -= 1;
+        return false;
+      }
+      domain(): string {
+        try {
+        // e.g. http://foo.com/path/to/bar
+        const domainAndPath: string = this.link.split('//')[1];
+        // e.g. foo.com/path/to/bar
+return domainAndPath.split('/')[0];
+} catch (err) {
+return null;
+}
+}
+}
+
+   
